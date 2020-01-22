@@ -1,6 +1,6 @@
 {
     "name": "tools",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "這是專為測試用的micro:bit積木2",
     "license": "MIT",
     "dependencies": {
