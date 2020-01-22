@@ -1,12 +1,14 @@
 {
-  "name": "tools",
-  "version": "0.0.4",
-  "description": "這是專為測試用的micro:bit積木2",
-  "license": "MIT",
-  "dependencies": {
-    "core": "*"
-  },
-  "files": ["README.md", "main.ts"],
-  "public": true,
-  "license": "MIT"
+    "name": "tools",
+    "version": "0.0.4",
+    "description": "這是專為測試用的micro:bit積木2",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts"
+    ],
+    "public": true
 }
