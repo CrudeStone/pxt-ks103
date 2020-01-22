@@ -15,67 +15,6 @@ namespace ks103 {
     err_msg: string;
 
     /**
-     * Set the address of the device
-     * @param addr the new address of this device
-     */
-
-    //% blockId="device_init" block="init ks103 | %device"
-    //% weight=10 blockGap=8
-    //% parts="KS103"
-    public init(): void {
-      let wbuf = pins.createBuffer(2);
-      this.err_msg = "";
-
-      // single shot mode, no clock stretching
-      wbuf.setNumber(NumberFormat.UInt8LE, 0, REG_ADDRESS);
-      wbuf.setNumber(NumberFormat.UInt8LE, 1, 0x71);
-      let result = pins.i2cWriteBuffer(this.i2c_addr, wbuf);
-      if (result != 0) {
-        this.err_msg = "I2C write failed";
-        return null;
-      }
-    }
-
-    /**
-     * get range value
-     */
-
-    //% blockId="device_get_range" block="%device|get range value"
-    //% weight=50 blockGap=8
-    //% parts="KS103"
-    public getRange(): number {
-      let wbuf = pins.createBuffer(2);
-      let range = 0;
-      this.err_msg = "";
-
-      wbuf.setNumber(NumberFormat.UInt8LE, 0, REG_ADDRESS);
-      wbuf.setNumber(NumberFormat.UInt8LE, 1, 0xb4);
-
-      pins.i2cWriteBuffer(this.i2c_addr, wbuf);
-
-      basic.pause(100);
-
-      wbuf = pins.createBuffer(1);
-      wbuf.setNumber(NumberFormat.UInt8LE, 0, REG_ADDRESS);
-
-      pins.i2cWriteBuffer(this.i2c_addr, wbuf);
-
-      let buf = pins.i2cReadBuffer(this.i2c_addr, 2);
-      if (buf.length == 2) {
-        let highByte = buf.getNumber(NumberFormat.UInt8LE, 0);
-        let lowByte = buf.getNumber(NumberFormat.UInt8LE, 1);
-
-        range = (highByte << 8) + lowByte;
-
-        return range;
-      }
-
-      this.err_msg = "I2C read failed";
-
-      return -1;
-    }
-
-    /**
      * get error message
      */
 
