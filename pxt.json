@@ -7,5 +7,6 @@
     "core": "*"
   },
   "files": ["README.md", "main.ts", "_locales/zh/tools-strings.json"],
-  "public": true
+  "public": true,
+  "license": "MIT"
 }
