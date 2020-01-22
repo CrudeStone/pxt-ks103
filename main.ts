@@ -36,6 +36,13 @@ namespace ks103 {
       }
     }
 
+    /**
+     * get range value
+     */
+
+    //% blockId="device_get_range" block="%device|get range value"
+    //% weight=50 blockGap=8
+    //% parts="KS103"
     public getRange(): number {
       let wbuf = pins.createBuffer(2);
       let range = 0;
