@@ -19,12 +19,10 @@ namespace ks103 {
      * @param addr the new address of this device
      */
 
-    //% blockId="device_init_address" block="%device|set the device address %addr"
+    //% blockId="device_init" block="init ks103 | %device"
     //% weight=10 blockGap=8
     //% parts="KS103"
-    public init(addr: I2C_ADDRESS): void {
-      this.i2c_addr = addr;
-
+    public init(): void {
       let wbuf = pins.createBuffer(2);
       this.err_msg = "";
 
