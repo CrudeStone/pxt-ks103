@@ -35,7 +35,7 @@ namespace ks103 {
      * get range value
      */
 
-    //% blockId="device_get_range" block="%device | get range value 2"
+    //% blockId="device_get_range" block="%device | get range value 3"
     //% weight=50 blockGap=8
     //% parts="KS103"
     public getRange(): number {
